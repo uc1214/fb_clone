@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @topics = topic.all
+    @topics = Topic.all
     respond_to do |format|
       format.html
       format.js
@@ -13,28 +13,28 @@ class TopicsController < ApplicationController
   def show
     @comment = @topic.comments.build
     @comments = @topic.comments
-    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
+    #Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
   def new
     if params[:back]
-      @topic = topic.new(topics_params)
+      @topic = Topic.new(topics_params)
     else
-      @topic = topic.new
+      @topic = Topic.new
     end
   end
 
   def confirm
-    @topic = topic.new(topics_params)
+    @topic = Topic.new(topics_params)
     render :new if @topic.invalid?
   end
 
   def create
-    @topic = topic.new(topics_params)
+    @topic = Topic.new(topics_params)
     @topic.user_id = current_user.id
     if @topic.save
      redirect_to topics_path, notice:"ブログを作成しました！"
-     NoticeMailer.sendmail_topic(@topic).deliver
+     #NoticeMailer.sendmail_topic(@topic).deliver
     else
      render 'new'
     end
@@ -52,7 +52,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = topic.find(params[:id])
+    @topic = Topic.find(params[:id])
     @topic.destroy
     redirect_to topics_path, notice: "ブログを削除しました！"
   end
@@ -63,6 +63,6 @@ class TopicsController < ApplicationController
     end
 
     def set_topic
-      @topic = topic.find(params[:id])
+      @topic = Topic.find(params[:id])
     end
 end
