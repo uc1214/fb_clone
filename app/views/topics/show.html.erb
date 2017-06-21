@@ -4,6 +4,7 @@
     <div class="topic-text">
       <p class="left"><strong>タイトル</strong></p>
       <p class="left"><%= @topic.title %></p>
+      <p class="left"><%= image_tag(@topic.topic_img, :class => "img") %></p>
       <p class="left"><strong>内容</strong></p>
       <p class="left"><%= @topic.content %></p>
       <p class="right">

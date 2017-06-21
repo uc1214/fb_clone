@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'comments/create'
-
   root 'top#index'
+  #トピック機能のアクションを生成
+  resources :topics, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post :confirm
+    end
+  end
 
+  #トピックのコメント機能のアクションを生成
+  resources :topics do
+    resources :comments
+    post :confirm, on: :collection
+  end
   #ログイン機能のアクションを生成=＞deviseライブラリ内のコントローラに渡される
   devise_for :users, controllers: {
     registrations: "users/registrations",

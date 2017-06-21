@@ -1,6 +1,9 @@
 <%= form_for(@topic, url: choose_new_or_edit) do |f| %>
   <%= f.error_messages! %>
-
+  <%= f.label :写真 %>
+  <%= f.file_field :topic_img, class: 'form-control' %>
+  <%= f.hidden_field :topic_img_cache %>
+  <br>
   <%= f.label :タイトル %>
   <%= f.text_field :title, class: 'form-control' %>
   <br>
@@ -10,4 +13,4 @@
   <%= f.submit '投稿', class: 'btn btn-primary btn-block'%>
 <% end %>
 
-<%= link_to "ブログ一覧画面にもどる", topics_path %>
+<%= link_to "トピック一覧画面にもどる", topics_path %>
