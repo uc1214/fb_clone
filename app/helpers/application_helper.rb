@@ -7,7 +7,7 @@ module ApplicationHelper
     else
       img_url = 'no_image.png'
     end
-    image_tag(img_url, alt: user.name, :class => "img width50")
+    image_tag(img_url, alt: user.name, :class => "img-profile")
   end
 end
 
