@@ -7,6 +7,8 @@ ja:
     attributes:
       topic:
         content: "内容"
+        topic_img: "投稿写真"
+        title: "タイトル"
       user:
         title: "タイトル"
         name: "名前"
