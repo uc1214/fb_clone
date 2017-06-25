@@ -15,16 +15,16 @@
           <% end %>が投稿しました。
         </div>
       </div>
-      <div>
+      <div class="align-left">
         <%= link_to topic_path(topic) do %>
           <h4><strong><%= topic.title %></strong></h4>
         <% end %>
         <div class="img"><%= image_tag(topic.topic_img) %></div>
-        <div class="clear align-right">
-          <p><%= topic.content %></p>
-          <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
-          <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: "fa fa-trash-o fa-lg" %>
-        </div>
+        <p><%= topic.content %></p>
+      </div>
+      <div class="clear align-right">
+        <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
+        <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: "fa fa-trash-o fa-lg" %>
       </div>
     </div>
     <% end %>
