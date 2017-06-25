@@ -45,5 +45,3 @@ auth_provider = "seed"
   ActiveRecord::Base.connection.execute("SELECT setval('topics_id_seq', coalesce((SELECT MAX(id)+1 FROM users), 1), false)")
   ActiveRecord::Base.connection.execute("SELECT setval('comments_id_seq', coalesce((SELECT MAX(id)+1 FROM users), 1), false)")
 end
-
-@sequence =
