@@ -15,11 +15,12 @@ User.delete_all
 #Blogテーブルのレコードの初期化
 Topic.delete_all
 
+name = "hoge"
+auth_provider = "seed"
+
 100.times do |m|
   email = Faker::Internet.email
   password = SecureRandom.hex(8)
-  name = "hoge"
-  auth_provider = "seed"
   auth_uid = SecureRandom.hex(8)
   User.create!(id: m,
                provider: auth_provider,
@@ -40,4 +41,9 @@ Topic.delete_all
     content: "fugahoge",
     user_id: m
   )
+  ActiveRecord::Base.connection.execute("SELECT setval('users_id_seq', coalesce((SELECT MAX(id)+1 FROM users), 1), false)")
+  ActiveRecord::Base.connection.execute("SELECT setval('topics_id_seq', coalesce((SELECT MAX(id)+1 FROM users), 1), false)")
+  ActiveRecord::Base.connection.execute("SELECT setval('comments_id_seq', coalesce((SELECT MAX(id)+1 FROM users), 1), false)")
 end
+
+@sequence =
