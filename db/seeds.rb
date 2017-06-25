@@ -17,6 +17,7 @@ Topic.delete_all
 
 100.times do |m|
   email = Faker::Internet.email
+  password = SecureRandom.hex(8)
   name = "hoge"
   User.create!(id: m,
                email: email,
