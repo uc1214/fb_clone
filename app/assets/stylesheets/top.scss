@@ -128,6 +128,14 @@ footer {
   clear: both;
 }
 
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
 .field-blogs-content{
   padding: 10px 0px 0px 20px;
 }
@@ -146,4 +154,5 @@ html {
 
 body {
   text-align: center;
+  background-color: #F0F0F0;
 }
