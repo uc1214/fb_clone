@@ -19,7 +19,11 @@ Topic.delete_all
   email = Faker::Internet.email
   password = SecureRandom.hex(8)
   name = "hoge"
+  auth_provider = "seed"
+  auth_uid = SecureRandom.hex(8)
   User.create!(id: m,
+               provider: auth_provider,
+               uid:      auth_uid,
                email: email,
                name: name,
                password: password,
