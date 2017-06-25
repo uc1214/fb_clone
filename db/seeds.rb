@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#Comentテーブルのレコードの初期化
+Comment.delete_all
+
 #Userテーブルのレコードの初期化
 User.delete_all
 
 #Blogテーブルのレコードの初期化
 Topic.delete_all
-
-#Comentテーブルのレコードの初期化
-Comment.delete_all
 
 100.times do |m|
   email = Faker::Internet.email
