@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Comentテーブルのレコードの初期化
+Message.delete_all
+
+#Comentテーブルのレコードの初期化
 Comment.delete_all
 
 #Userテーブルのレコードの初期化
