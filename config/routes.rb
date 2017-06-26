@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index]
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:show, :create, :destroy]
 
   resources :conversations do
     resources :messages
