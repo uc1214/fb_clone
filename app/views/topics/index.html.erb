@@ -12,6 +12,8 @@
         <div class="align-left">
           <%= link_to relationship_path(topic.user) do %>
             <%= topic.user.name %>
+            <%= current_user.id %>
+            <%= topic.user_id %>
           <% end %>が投稿しました。
         </div>
       </div>
@@ -23,7 +25,7 @@
         <p><%= topic.content %></p>
       </div>
       <div class="clear align-right">
-        <%= if current_user.id == topic.user.id %>
+        <% if current_user.id == topic.user_id %>
           <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
           <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: "fa fa-trash-o fa-lg" %>
         <% end %>
