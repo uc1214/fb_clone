@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Comentテーブルのレコードの初期化
+#Messageテーブルのレコードの初期化
 Message.delete_all
 
 #Comentテーブルのレコードの初期化
